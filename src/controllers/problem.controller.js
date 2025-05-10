@@ -1,5 +1,7 @@
  function addProblem(req, res) {
-
+    return res.status(501).json({
+        message: 'addProblem is not implemented yet'
+    }); 
  }
 
  function pingProblemController(req, res) {
@@ -8,19 +10,27 @@
 
 
  function getProblem(req, res) {
-
+    return res.status(501).json({
+        message: 'addProblem is not implemented yet'
+    }); 
  }
 
  function getProblems(req, res) {
-
+    return res.status(501).json({
+        message: 'addProblem is not implemented yet'
+    }); 
  }
 
  function deleteProblem(req, res) {
-
+    return res.status(501).json({
+        message: 'addProblem is not implemented yet'
+    }); 
  }  
 
 function updateProblem(req, res) {
-            
+    return res.status(501).json({
+        message: 'addProblem is not implemented yet'
+    });        
 }
 
 module.exports = {

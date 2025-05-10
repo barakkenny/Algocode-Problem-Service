@@ -12,6 +12,9 @@ app.use(bodyParser.text());
 // If any request comes and route starts with /api, we map it to apiRouter
 app.use('/api', apiRouter);
 
+app.get('/ping', (req, res)=> {
+    return res.json({message: 'ping controller is up'})
+})
 
 app.listen(PORT, ()=> {
     console.log(`listening at PORT ${PORT}`)

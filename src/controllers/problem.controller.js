@@ -1,9 +1,13 @@
-const { StatusCodes} = require('http-status-codes')
+const { StatusCodes} = require('http-status-codes');
+const NotImplemented = require('../errors/notImplemented.error.js');
+const BadRequest = require('../errors/badrequest.error.js');
 
-function addProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message: 'addProblem is not implemented yet'
-    }); 
+function addProblem(req, res, next) {
+    try {
+        throw new BadRequest('Problem Name', {message: 'Problem name is required'});    
+    } catch(error) {
+        next(error);
+    }
  }
 
  function pingProblemController(req, res) {

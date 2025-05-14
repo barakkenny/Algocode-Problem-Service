@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const problemSchema = new mongoose.schema({
+const problemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Title cannot be empty"],
@@ -15,7 +15,8 @@ const problemSchema = new mongoose.schema({
     required: [true, "Difficulty cannot be empty"],
     default: "easy",
   },
-  testCases: {
+  testCases: [
+    {
     input: {
       type: String,
       required: [true, "Input cannot be empty"],
@@ -27,7 +28,8 @@ const problemSchema = new mongoose.schema({
     editorial: {
       type: String,
     },
-  },
+  }
+  ],
 });
 
 const Problem = mongoose.model("Problem", problemSchema);

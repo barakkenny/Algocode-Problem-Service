@@ -1,10 +1,21 @@
 const { StatusCodes} = require('http-status-codes');
 const NotImplemented = require('../errors/notImplemented.error.js');
-const BadRequest = require('../errors/badrequest.error.js');
+// const BadRequest = require('../errors/badrequest.error.js');
+const { ProblemRepository } = require('../repositories');
+const { ProblemService } = require('../services');
 
-function addProblem(req, res, next) {
+const problemService = new ProblemService(new ProblemRepository());
+
+async function addProblem(req, res, next) {
     try {
-        throw new BadRequest('Problem Name', {message: 'Problem name is required'});    
+        console.log('incoming request body', req.body)
+        const newProblem = await problemService.createProblem(req.body);
+        return res.status(StatusCodes.CREATED).json({
+            success: true,
+            message: 'Problem created successfully',
+            error: {},
+            data: newProblem
+        });  
     } catch(error) {
         next(error);
     }
@@ -16,27 +27,35 @@ function addProblem(req, res, next) {
 
 
  function getProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message: 'addProblem is not implemented yet'
-    }); 
+    try{
+        throw new NotImplemented('Add Problem')
+    } catch(error){
+        next(error);
+    }
  }
 
  function getProblems(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message: 'addProblem is not implemented yet'
-    }); 
+    try{
+        throw new NotImplemented('Add Problem')
+    } catch(error){
+        next(error);
+    }
  }
 
  function deleteProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message: 'addProblem is not implemented yet'
-    }); 
+    try{
+        throw new NotImplemented('delete problem')
+    } catch(error){
+        next(error);
+    }
  }  
 
 function updateProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message: 'addProblem is not implemented yet'
-    });        
+    try{
+        throw new NotImplemented('update problem')
+    } catch(error){
+        next(error);
+    }        
 }
 
 module.exports = {

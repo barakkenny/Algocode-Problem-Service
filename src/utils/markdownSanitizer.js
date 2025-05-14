@@ -6,15 +6,12 @@ function sanitizeMarkdownContent(markdownContent) {
     const turndownService = new TurnDownService();
 
     const convertedHtml = marked.parse(markdownContent);
-    console.log('converted html', convertedHtml)
 
     const sanitizedHtml = sanitizeHtml(convertedHtml, {
         allowedTags: sanitizeHtml.defaults.allowedTags
     });
-    console.log('sanitized html',sanitizedHtml)
    
     const sanitizedMarkdown = turndownService.turndown(sanitizedHtml);
-   console.log('sanitized markdown',sanitizedMarkdown)
    
     return sanitizedMarkdown;
 }

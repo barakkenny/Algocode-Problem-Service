@@ -7,7 +7,6 @@ class BaseError extends Error {
 
         Error.captureStackTrace(this)
 
-        // console.log(this.stack)
     }
 }
 
